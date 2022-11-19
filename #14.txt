@@ -1,0 +1,26 @@
+Unscramble the eggs.
+
+The string given to your function has had an "egg" inserted directly after each consonant. You need to return the string before it became eggcoded.
+
+Example
+unscrambleEggs("Beggegeggineggneggeregg"); => "Beginner"
+//             "B---eg---in---n---er---"
+Kata is supposed to be for beginners to practice regular expressions, so commenting would be appreciated.
+================================================================================
+
+Mine
+function unscrambleEggs(word){
+  let index = word.split("egg")
+  let text = "";
+  for (let i = 0; i < index.length; i++) {
+    text = text + index[i];
+  }
+  return text
+}
+
+
+The Best
+
+function unscrambleEggs(word){
+  return word.replace(/egg/g,"")
+}

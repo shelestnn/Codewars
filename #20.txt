@@ -1,0 +1,25 @@
+I have four positive integers, A, B, C and D, where A < B < C < D. The input is a list of the integers A, B, C, D, AxB, BxC, CxD, DxA in some order. Your task is to return the value of D.
+
+
+==============================
+
+function alphabet(ns) {
+  let nsSort = [...ns]
+  nsSort.sort(function(a,b){
+    return a-b
+  })
+
+  let checkB = nsSort[1]
+  let checkAB = nsSort[0]*nsSort[1]
+  nsSort.splice(0,2)
+  nsSort.splice(nsSort.indexOf(checkAB),1)
+
+  let checkCDAD = (nsSort[nsSort.lenght-1])/(nsSort[nsSort.lenght-2])
+  let checkC = (checkAB*nsSort[nsSort.length-1]/nsSort[nsSort.length-2])/checkB
+
+  if (nsSort.indexOf(checkC)!==-1) {
+    return nsSort[nsSort.length-1]/checkC
+  } else {
+    return nsSort[nsSort.length-1]/(nsSort[nsSort.length-2]/checkB)
+  }
+}
